@@ -1,41 +1,24 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 export default function App() {
+  const [list] = useState([1, 1, 1, 1]);
+
   return (
     <div>
-      <h1 style={{ background: "tomato", color: "white", textAlign: "center" }}>
-        Project Description
+      <h1 className="bg-light text-danger p-3 sticky-top" className="App">
+        React Bootstrap
       </h1>
 
-      <div
-        style={{ background: "lightgrey", padding: "3px", marginBottom: "5px" }}
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quam
-        repudiandae doloribus, cum repellendus enim nisi, eveniet quisquam
-        itaque, vel et. Recusandae quisquam voluptatum ipsa tempore minus
-        assumenda laboriosam perferendis!
-      </div>
-
-      <h2
-        style={{
-          background: "orange",
-          padding: "3px",
-          margintop: "5px",
-          textAlign: "center",
-        }}
-      >
-        Detailing Concept
-      </h2>
-      <div style={{ background: "lightgrey", padding: "3px" }}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, qui
-        facere vero et nihil est culpa, velit aspernatur natus adipisci nobis
-        earum. Doloremque voluptates excepturi adipisci sit sapiente ab
-        aspernatur. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        Consequuntur vitae fuga nisi vel soluta. Laboriosam tempora, inventore
-        reiciendis provident magni dolor, magnam ab in veniam quam, optio
-        debitis aliquid quibusdam?
-      </div>
+      {list.map((item, index) => (
+        <div key={index} className="alert-secondary p-3 m-3 rounded">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          ipsa, hic similique laboriosam iusto ea dolor maiores ullam voluptatum
+          error numquam ad dolore impedit? Suscipit rerum odio distinctio
+          eveniet dolore!
+        </div>
+      ))}
     </div>
   );
 }
