@@ -1,43 +1,41 @@
+import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
 
 export default function App() {
-  const [textInput, setTextInput] = useState("");
-  const updateTextInput = (e) => setTextInput(e.target.value);
-
-  const [list, setList] = useState([]);
-  const postTweet = () => {
-    setList([textInput, ...list]);
-    setTextInput("");
-  };
-
   return (
     <div>
-      <h1 className="bg-primary text-light p-3" style={{ textAlign: "center" }}>
-        Mini Twitter
+      <h1 style={{ background: "tomato", color: "white", textAlign: "center" }}>
+        Project Description
       </h1>
 
-      <div className="alert alert-dark row">
-        <input
-          type="text"
-          value={textInput}
-          onChange={(e) => updateTextInput(e)}
-          className="form-control mb-1"
-          placeholder="post tweet"
-        />
-        <input
-          type="button"
-          className="btn btn-dark"
-          onClick={() => postTweet()}
-          value="Tweet"
-        />
+      <div
+        style={{ background: "lightgrey", padding: "3px", marginBottom: "5px" }}
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quam
+        repudiandae doloribus, cum repellendus enim nisi, eveniet quisquam
+        itaque, vel et. Recusandae quisquam voluptatum ipsa tempore minus
+        assumenda laboriosam perferendis!
       </div>
 
-      {list.map((item, index) => (
-        <div key={index} className="alert alert-secondary">
-          {item}
-        </div>
-      ))}
+      <h2
+        style={{
+          background: "orange",
+          padding: "3px",
+          margintop: "5px",
+          textAlign: "center",
+        }}
+      >
+        Detailing Concept
+      </h2>
+      <div style={{ background: "lightgrey", padding: "3px" }}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, qui
+        facere vero et nihil est culpa, velit aspernatur natus adipisci nobis
+        earum. Doloremque voluptates excepturi adipisci sit sapiente ab
+        aspernatur. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Consequuntur vitae fuga nisi vel soluta. Laboriosam tempora, inventore
+        reiciendis provident magni dolor, magnam ab in veniam quam, optio
+        debitis aliquid quibusdam?
+      </div>
     </div>
   );
 }
