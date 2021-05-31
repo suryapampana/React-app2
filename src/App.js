@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [textInput, setTextInput] = useState("");
+  const updateTextInput = (e) => setTextInput(e.target.value);
+
+  const [list, setList] = useState([]);
+  const postTweet = () => {
+    setList([textInput, ...list]);
+    setTextInput("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="bg-primary text-light p-3" style={{ textAlign: "center" }}>
+        Mini Twitter
+      </h1>
+
+      <div className="alert alert-dark row">
+        <input
+          type="text"
+          value={textInput}
+          onChange={(e) => updateTextInput(e)}
+          className="form-control mb-1"
+          placeholder="post tweet"
+        />
+        <input
+          type="button"
+          className="btn btn-dark"
+          onClick={() => postTweet()}
+          value="Tweet"
+        />
+      </div>
+
+      {list.map((item, index) => (
+        <div key={index} className="alert alert-secondary">
+          {item}
+        </div>
+      ))}
     </div>
   );
 }
-
-export default App;
