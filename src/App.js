@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [list] = useState([1, 1, 1, 1, 1]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <h1
+        className="bg-dark text-light p-3 sticky-top"
+        style={{ textAlign: "center" }}
+      >
+        {" "}
+        Mini Instagram
+      </h1>
+
+      {list.map((item, index) => (
+        <div
+          key={index}
+          className="alert-secondary m-3 rounded"
+          style={{ height: "300px" }}
         >
-          Learn React
-        </a>
-      </header>
+          <img
+            src={"https://picsum.photos/300" + index}
+            className="rounded"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            alt=""
+          />
+        </div>
+      ))}
     </div>
   );
 }
-
-export default App;
